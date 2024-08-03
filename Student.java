@@ -6,6 +6,7 @@ public class Student {
     private List<Course> courses;
     private static int studentNumber=0;
 
+
     public Student(String name){
         this.name = name;
         studentNumber+=1;
@@ -41,9 +42,9 @@ public class Student {
 
    public int getStudentAverageGrade(Course course){
         int sum=0;
-        for(Assignment assignment:course.getAssignments()){
-           sum+=assignment.getGrade();
-        }
-        return sum/courses.size();
+        for (int i=0; i<course.getAssignments().size(); i++){
+            sum+=course.getGrade(id, i);
+       }
+        return sum/course.getAssignments().size();
    }
 }

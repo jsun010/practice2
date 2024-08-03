@@ -6,14 +6,7 @@ public class Course {
     private List<Student> students;
     private List<Assignment> assignments;
     private static int courseNumber=0;
-
-    public Course(String courseName, List<Student> students, List<Assignment> assignments) {
-        this.courseName = courseName;
-        courseNumber+=1;
-        this.id = courseNumber;
-        this.students = students;
-        this.assignments = assignments;
-    }
+    private double [][] grade = new double [students.size()][assignments.size()];
 
     public Course (String courseName, List<Student> students) {
         this.courseName = courseName;
@@ -48,16 +41,16 @@ public class Course {
         students.add(student);
     }
 
-    public void addAssignment(Assignment assignment) {
-        assignments.add(assignment);
-    }
-
     public int getNumberOfStudents() {
         return students.size();
     }
 
     public int getNumberOfAssignments() {
         return assignments.size();
+    }
+
+    public double getGrade(int studentId, int assignmentId) {
+        return grade[studentId-1][assignmentId-1];
     }
 
 }
